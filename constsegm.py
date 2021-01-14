@@ -6,7 +6,7 @@
 Copyright (c) 2021, Antal Koós
 License: MIT
 """
-__version__= "0.9"
+__version__= "0.9.1"
 
 import pandas as pd, numpy as np
 from matplotlib import pylab as plt
@@ -43,8 +43,6 @@ G= df[crit].groupby(s)
 # To stdout:
 #------------
 for _key,grp in G:
-
-    if len(grp)>1:
         print(f"{grp.index[0]} - {grp.index[-1]}")
 
 #-----------
@@ -63,8 +61,6 @@ ax.set_title(pth.Path(fn_data).name)
 vi= min(df[cols].min()) - 0.5
 
 for _key,grp in G:
-
-    if len(grp)>1:
 
         x1,x2= grp.index[0], grp.index[-1]
         ax.hlines(vi, x1, x2, color="darkgreen", ls="--", alpha=0.5)
