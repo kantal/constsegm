@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.8
-#-*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
 """ Simultaneously Constant or Almost Constant Segments Detection
 
@@ -30,7 +30,6 @@ df= pd.read_csv(fn_data, parse_dates=["Time"], index_col=["Time"], sep=";")
 col_d1, col_d2= df.columns[:2]
 # The criteria:
 crit= df[col_d1].diff().abs().le(eps1) & df[col_d2].diff().abs().le(eps2)
-crit[0]= crit[1]
 
 shcrit= crit.shift(-1, fill_value=False)
 crit= crit|shcrit
